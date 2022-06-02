@@ -38,10 +38,20 @@ jobs:
           echo test, and deploy your project.
           
   hello-world-windows:
-    name: Hello World Windows
-    needs: [ hello-world-ubuntu ]
+    name: Hello World Windows    
     runs-on: windows-latest
     
     steps:
       - name: Print Hello World Windows
         run: echo "Hello World rodando no Windows"
+        
+  hello-world-macos:
+    name: Hello World MacOS
+    runs-on: macos-latest
+    needs: 
+     - hello-world-ubuntu
+     - hello-world-windows    
+    
+    steps:
+      - name: Print Hello World Windows
+        run: echo "Hello World rodando no MacOS"
